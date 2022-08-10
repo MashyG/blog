@@ -10,7 +10,6 @@ jobs:
       - name: vuepress-deploy
         uses: MashyG/blog@master
         env:
-          GITHUB_WORKSPACE: -
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           GITHUB_ACTOR: MashyG
           TARGET_REPO: MashyG/blog
