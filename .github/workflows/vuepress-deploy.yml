@@ -10,8 +10,10 @@ jobs:
       - name: vuepress-deploy
         uses: MashyG/blog@master
         env:
+          GITHUB_WORKSPACE: -
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_ACTOR: MashyG
           TARGET_REPO: MashyG/blog
-          TARGET_BRANCH: master
-          BUILD_SCRIPT: pnpm && pnpm build
+          TARGET_BRANCH: gh-pages
+          BUILD_SCRIPT: npm install pnpm && pnpm && pnpm build
           BUILD_DIR: docs/.vuepress/dist
