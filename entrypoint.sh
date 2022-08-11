@@ -70,4 +70,4 @@ rm -fr .git
 cd $GITHUB_WORKSPACE
 
 echo "Successfully deployed!" && \
-echo "See: https://github.com/$REPOSITORY_NAME/$DEPLOY_BRAN"
+echo "See: https://mashg.github.io/$REPOSITORY_NAME/"
