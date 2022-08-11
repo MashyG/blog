@@ -9,7 +9,9 @@ LABEL "repository"="https://github.com/MashyG/blog"
 LABEL "homepage"="https://github.com/MashyG/blog"
 LABEL "maintainer"="MashyG"
 
-RUN sudo apt-get update && sudo apt-get install -y git jq
+RUN chmod +x entrypoint.sh
+
+RUN apt-get update && apt-get install -y git jq
 
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["sh", "/entrypoint.sh"]
