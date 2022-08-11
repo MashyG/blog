@@ -4,6 +4,10 @@ author: MashyG
 date: '2022-08-11'
 ---
 
+## 博客地址
+
+[Blog](https://mashyg.github.io/blog/)
+
 ## Github
 
 - [配置多个GitHub账号于本机](./github/more-account.md)
