@@ -1,4 +1,8 @@
-# MashyG Blog
+---
+title: MashyG Blog
+author: MashyG
+date: '2022-08-11'
+---
 
 ## Github
 
