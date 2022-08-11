@@ -9,9 +9,8 @@ LABEL "repository"="https://github.com/MashyG/blog"
 LABEL "homepage"="https://github.com/MashyG/blog"
 LABEL "maintainer"="MashyG"
 
-RUN chmod +x /entrypoint.sh
-
 RUN apt-get update && apt-get install -y git jq
 
 COPY entrypoint.sh /entrypoint.sh
+RUN ["chmod", "+x", "/entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]
