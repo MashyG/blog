@@ -49,12 +49,6 @@ if [ -z "$(git status --porcelain)" ]; then
     exit 0
 fi
 
-# Generate a CNAME file
-if [ "$CNAME" ]; then
-  echo "Generating a CNAME file..."
-  echo $CNAME > CNAME
-fi
-
 echo "==> Starting deploying"
 
 # Final repository

@@ -16,3 +16,7 @@ date: "2022-08-11"
 ## JavaScript 忍者秘籍
 
 - [函数是根基](./JavaScript/function.md)
+
+## 参考
+
+[Vitepress](https://vitepress.vuejs.org/guide/what-is-vitepress.html)
