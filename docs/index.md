@@ -1,5 +1,5 @@
 ---
 title: Hello VuePress
 author: MashyG
-date: '2022-08-11'
+date: "2022-08-11"
 ---

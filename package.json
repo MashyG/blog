@@ -4,16 +4,13 @@
   "description": "vuepress-blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.9.7"
-  },
-  "dependencies": {
-    "vuepress-theme-reco": "^1.6.14"
+    "vitepress": "^1.0.0-alpha.4",
+    "vue": "^3.2.37"
   }
 }

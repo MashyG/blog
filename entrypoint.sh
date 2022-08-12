@@ -62,6 +62,7 @@ if [[ -z "$COMMIT_MESSAGE" ]]; then
   COMMIT_MESSAGE="Auto deploy from Github Actions"
 fi
 
+# github push 到 gh-pages 分支
 git add .
 git commit -m "$COMMIT_MESSAGE"
 git push --force $DEPLOY_REPO master:$DEPLOY_BRAN

@@ -1,7 +1,7 @@
 ---
 title: MashyG Blog
 author: MashyG
-date: '2022-08-11'
+date: "2022-08-11"
 ---
 
 ## 博客地址
@@ -10,7 +10,7 @@ date: '2022-08-11'
 
 ## Github
 
-- [配置多个GitHub账号于本机](./github/more-account.md)
+- [配置多个 GitHub 账号于本机](./github/more-account.md)
 - [本地项目上传到 git 远程仓库](./github/operate.md)
 
 ## JavaScript 忍者秘籍
