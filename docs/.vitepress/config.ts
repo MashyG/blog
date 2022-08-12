@@ -46,6 +46,10 @@ export default {
           {
             text: '函数',
             link: '/JavaScript/function'
+          },
+          {
+            text: '挥舞函数',
+            link: '/JavaScript/useOfFunction'
           }
         ]
       }
