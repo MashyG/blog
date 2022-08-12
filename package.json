@@ -1,7 +1,7 @@
 {
-  "name": "vuepress-blog",
+  "name": "Vitepress-blog",
   "version": "1.0.0",
-  "description": "vuepress-blog",
+  "description": "Vitepress-blog",
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev docs",

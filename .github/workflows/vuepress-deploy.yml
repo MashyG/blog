@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: vuepress-deploy
+      - name: Vitepress-deploy
         uses: MashyG/blog@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -15,4 +15,4 @@ jobs:
           TARGET_REPO: MashyG/blog
           TARGET_BRANCH: gh-pages
           BUILD_SCRIPT: yarn && yarn build
-          BUILD_DIR: docs/.vuepress/dist
+          BUILD_DIR: docs/.vitepress/dist

@@ -4,13 +4,13 @@
 set -e
 
 # 进入生成的文件夹
-rm -rf docs/.vuepress/dist
+rm -rf docs/.vitepress/dist
 
 # 生成静态文件
 pnpm run build
 
 # 进入生成的文件夹
-cd docs/.vuepress/dist
+cd docs/.vitepress/dist
 
 git init
 git add -A
