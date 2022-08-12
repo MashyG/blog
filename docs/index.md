@@ -6,18 +6,9 @@ date: "2022-08-11"
 
 ## Hello Vitepress
 
-<script setup>
-import Title from './.vitepress/theme/components/Title/index.vue'
-</script>
-
 ## Use Component In Markdown
 
 ```vue
-<!-- 导入 -->
-<script setup>
-import Title from './.vitepress/theme/components/Title/index.vue'
-</script>
-
 <!-- 使用 -->
 <Title title='Hello Vitepress' />
 ```
@@ -25,3 +16,7 @@ import Title from './.vitepress/theme/components/Title/index.vue'
 ## SHOW
 
 <Title title='Hello Vitepress' />
+
+<script setup>
+import Title from './.vitepress/theme/components/Title.vue'
+</script>
