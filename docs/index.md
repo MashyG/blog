@@ -9,6 +9,9 @@ date: "2022-08-11"
 ## Use Component In Markdown
 
 ```vue
+<!-- 该组件需要注册 -->
+<!-- import Title from './.vitepress/theme/components/Title.vue' -->
+
 <!-- 使用 -->
 <Title title='Hello Vitepress' />
 ```
