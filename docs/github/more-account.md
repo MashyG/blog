@@ -1,8 +1,13 @@
 ---
 title: 配置多个GitHub账号于本机
 author: MashyG
-date: "2022-08-10"
+date: "2022-08-12"
 ---
+
+# 配置多个GitHub账号于本机
+
+目录
+[[toc]]
 
 ## 查看 git 已配置列表
 

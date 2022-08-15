@@ -8,7 +8,7 @@ echo ''
 echo "node version: $(node -v)"
 echo "npm version: $(npm -v)"
 
-# Build Vitepress project
+# Build vuepress project
 echo "==> Start building \n $BUILD_SCRIPT"
 eval "$BUILD_SCRIPT"
 echo "Build success"

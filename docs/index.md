@@ -1,25 +1,18 @@
 ---
-title: Hello Vitepress
+title: Hello vuepress
 author: MashyG
 date: "2022-08-11"
 ---
 
-## Hello Vitepress
+# Hello vuepress
 
 ## Use Component In Markdown
 
 ```vue
-<!-- 该组件需要注册 -->
-<!-- import Title from './.vitepress/theme/components/Title.vue' -->
-
 <!-- 使用 -->
-<Title title='Hello Vitepress' />
+<Title title='Hello vuepress' />
 ```
 
 ## SHOW
 
-<Title title='Hello Vitepress' />
-
-<script setup>
-import Title from './.vitepress/theme/components/Title.vue'
-</script>
+<Title title='Hello vuepress' />

@@ -19,4 +19,4 @@ date: "2022-08-11"
 
 ## 参考
 
-[Vitepress](https://vitepress.vuejs.org/guide/what-is-vitepress.html)
+[vuepress](https://vuepress.vuejs.org/guide/what-is-vuepress.html)
