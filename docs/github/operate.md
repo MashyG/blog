@@ -1,8 +1,3 @@
----
-title: 本地项目上传到 git 远程仓库
-author: MashyG
-date: "2022-08-12"
----
 
 # 本地项目上传到 git 远程仓库
 

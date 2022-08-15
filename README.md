@@ -1,10 +1,5 @@
----
-title: MashyG Blog
-author: MashyG
-date: "2022-08-11"
----
 
-## 博客地址
+# 博客地址
 
 [Blog](https://mashyg.github.io/blog/)
 

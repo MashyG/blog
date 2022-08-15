@@ -1,8 +1,3 @@
----
-title: 挥舞函数
-author: MashyG
-date: "2022-08-12"
----
 
 # 挥舞函数
 
