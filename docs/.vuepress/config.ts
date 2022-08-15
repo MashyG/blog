@@ -77,6 +77,11 @@ export default {
             text: '挥舞函数',
             link: '/JavaScript/useOfFunction',
             children: []
+          },
+          {
+            text: '闭包',
+            link: '/JavaScript/closure',
+            children: []
           }
         ]
       }
