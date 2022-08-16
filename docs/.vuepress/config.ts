@@ -82,6 +82,11 @@ export default {
             text: '闭包',
             link: '/JavaScript/closure',
             children: []
+          },
+          {
+            text: '原型与面向对象',
+            link: '/JavaScript/prototype',
+            children: []
           }
         ]
       }
