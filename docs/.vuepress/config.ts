@@ -87,6 +87,11 @@ export default {
             text: '原型与面向对象',
             link: '/JavaScript/prototype',
             children: []
+          },
+          {
+            text: '正则表达式',
+            link: '/JavaScript/regexp',
+            children: []
           }
         ]
       }

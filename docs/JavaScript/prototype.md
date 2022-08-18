@@ -104,3 +104,59 @@ console.log(runFunc === runFunc1) // false
 ```
 
 ### 继承与原型链
+
+**用原型实现继承**🐂
+
+> 创建一个原型链最好的方式是，使用一个对象的实例作为另外一个对象的实例 `subClass.prototype = new SupperClass()`；这将保持原型链，是因为 SubClass 实例的原型是 SupperClass 的一个实例，该实例不仅拥有原型，还持有 SupperClass 的所有属性，并且该原型指向其自身超类的一个实例
+
+```js
+function Person() {}
+Person.prototype.dance = function() {}
+
+function Ninja() {}
+Ninja.prototype = new Person()
+
+var ninja = new Ninja()
+console.log(ninja instanceof Ninja) // true
+console.log(ninja instanceof Person) // true
+console.log(ninja instanceof Object) // true
+console.log(typeof ninja.dance === 'function') // true
+```
+
+> 所有原生 JavaScript 对象构造器（如Object，Array，String，Number，RegExp，Function）都有可以被操作和扩展的原型属性，这是因为每个对象构造器自身就是一个函数
+
+## 疑难陷阱
+
+### 扩展对象
+
+> 当在对象上 Object 上添加属性时，需要注意 Object 上已有原生的属性，否则会破坏原生属性。此时需要判断对象是否有新属性：`Object.hasOwnProperty(key)`
+
+```js
+Object.prototype.keys = function() {
+  var keys = []
+  for(var i in this) {
+    if (this.hasOwnProperty(i)) {
+      keys.push(i)
+    }
+  }
+  return keys
+}
+var obj = { a: 1, b: 2 }
+console.log(obj.keys().length === 2)  // true
+```
+
+### 扩展数字
+
+```js
+Number.prototype.add = function(num) {
+  return this + num
+}
+var n = 5
+
+// 用数字变量验证
+console.log(n.add(3) === 8) // Uncaught SyntaxError: Invalid or unexpected token（语法解析器不能处理字面量）
+// 用数字表达式验证
+console.log((5).add(3) === 8) // Uncaught SyntaxError: Invalid or unexpected token（语法解析器不能处理字面量）
+// 用数字字面量验证
+console.log(5.add(3) === 8) // Uncaught SyntaxError: Invalid or unexpected token（语法解析器不能处理字面量）
+```
