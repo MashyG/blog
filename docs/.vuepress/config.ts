@@ -1,10 +1,11 @@
+import { defineUserConfig } from 'vuepress'
 const {
   registerComponentsPlugin
 } = require('@vuepress/plugin-register-components')
 const { path } = require('@vuepress/utils')
 const { defaultTheme } = require('@vuepress/theme-default')
 
-export default {
+export default defineUserConfig({
   base: '/blog/',
   title: 'MashyG',
   description: 'MashyG‘s Blog',
@@ -16,11 +17,7 @@ export default {
     })
   ],
   // 设置语言
-  locales: {
-    '/': {
-      lang: 'zh-CN'
-    }
-  },
+  lang: 'zh-CN',
   theme: defaultTheme({
     home: '/',
     colorMode: 'light',
@@ -97,4 +94,4 @@ export default {
       }
     ]
   })
-}
+})
