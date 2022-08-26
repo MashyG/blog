@@ -46,6 +46,17 @@ export default defineUserConfig({
         ]
       },
       {
+        text: 'Webpack',
+        collapsable: false, // 不折叠
+        children: [
+          {
+            text: 'webpack 优化',
+            link: '/webpack',
+            children: []
+          }
+        ]
+      },
+      {
         text: 'Github 学习记录',
         collapsable: false, // 不折叠
         children: [
