@@ -3,74 +3,103 @@
 目录
 [[toc]]
 
-## 编译优化
+## 构建时间优化
 
-### vue cli3 webpack 默认配置
+### thread-loader
+
+> 多进程打包，可以大大提高构建的速度，使用方法是将 `thread-loader` 放在比较费时间的 `loader` 之前，比如 `babel-loader`
+
+### cache-loader
+
+> 多进程打包，可以大大提高构建的速度，使用方法是将 `cache-loader` 放在比较费时间的 `loader` 之前，比如 `babel-loader`
 
 ```shell
-vue inspect
+# 下载依赖
+yarn add thread-loader cache-loader -D
 ```
-
-### sourcemap改动
-
-对于打包后的 `sourceMap`，[webpack提供多种类型的配置](https://webpack.docschina.org/configuration/devtool/#devtool)
-
-`eval-cheap-source-map` 在保有报错关键信息的同时，在构建以及重新构建中速度会更快
-
-### 可用smp先对plugin跟loader进行分析 [在vue cli3中使用smp](https://github.com/stephencookdev/speed-measure-webpack-plugin/issues/61)
 
 ```js
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-chainWebpack: config => {
-    config.plugins.delete('prefetch')
-    config
-      .plugin('speed-measure-webpack-plugin')
-      .use(SpeedMeasurePlugin)
-      .end()
- },
+// 由于启动项目和打包项目都需要加速，所以配置在 webpack.base.js
+{
+  test: /\.js$/,
+  use: [
+    'cache-loader',
+    'thread-loader',
+    'babel-loader'
+  ],
+}
 ```
 
-### thread-loader多线程构建
+### exclude & include
 
-在我们的项目中，经过测试，thread-loader 对于打包速度几乎没有影响，是因为它本身的额外开销导致
+- exclude：不需要处理的文件
+- include：需要处理的文件
 
 ```js
-const threadLoader = require('thread-loader')
-threadLoader.warmup({}, ['vue-loader', 'eslint-loader'])
-
-chainWebpack: config => {
-    config.module
-      .rule('eslint')
-      .use('thread-loader')
-      .loader('thread-loader')
-      .before('eslint-loader')
-
-    config.module
-      .rule('vue')
-      .use('thread-loader')
-      .loader('thread-loader')
-      .before('vue-loader')
-  },
+// webpack.base.js
+{
+  test: /\.js$/,
+  include: path.resolve(__dirname, '../src'),
+  exclude: /node_modules/,
+  use: [
+    'cache-loader',
+    'thread-loader',
+    'babel-loader'
+  ],
+}
 ```
 
-### hard-source-webpack-plugin中间缓存
+### 构建区分环境
 
-```js
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-plugin: [
-  new HardSourceWebpackPlugin()
-]
-```
+- 开发环境：去除代码压缩、gzip、体积分析等优化的配置，大大提高构建速度
+- 生产环境：需要代码压缩、gzip、体积分析等优化的配置，大大降低最终项目打包体积
 
 ## 打包优化
 
-### gzip打包: compression-webpack-plugin
+### CSS 代码压缩
 
-> 用法：`https://www.npmjs.com/package/compression-webpack-plugin`
+```shell
+yarn add css-minimizer-webpack-plugin -D
+```
 
-### 多线程压缩js: terser-webpack-plugin 
+```js
+// webpack.prod.js
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+module.exports = {
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(), // 去重压缩css
+    ],
+  }
+}
+```
+
+### 多线程压缩js: terser-webpack-plugin
 
 > 用法：`https://www.npmjs.com/package/terser-webpack-plugin`
+
+```shell
+yarn add terser-webpack-plugin -D
+```
+
+```js
+// webpack.prod.js
+const TerserPlugin = require('terser-webpack-plugin')
+module.exports = {
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(), // 去重压缩css
+      new TerserPlugin({ // 压缩JS代码
+        terserOptions: {
+          compress: {
+            drop_console: true, // 去除console
+          },
+        },
+      }), // 压缩JavaScript
+    ],
+  }
+}
+```
 
 ### 分割代码: splitChunks
 
@@ -263,4 +292,87 @@ config.module
   .loader('image-webpack-loader')
   .options({ bypassOnDebug: true })
   .end()
+```
+
+## 编译优化
+
+### vue cli3 webpack 默认配置
+
+```shell
+vue inspect
+```
+
+### sourcemap 改动
+
+对于打包后的 `sourceMap`，[webpack提供多种类型的配置](https://webpack.docschina.org/configuration/devtool/#devtool)
+
+`eval-cheap-source-map` 在保有报错关键信息的同时，在构建以及重新构建中速度会更快
+
+### 可用 smp 先对 plugin 跟 loader 进行分析
+
+> [在vue cli3中使用smp](https://github.com/stephencookdev/speed-measure-webpack-plugin/issues/61)
+
+```js
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+chainWebpack: config => {
+  config.plugins.delete('prefetch')
+  config
+    .plugin('speed-measure-webpack-plugin')
+    .use(SpeedMeasurePlugin)
+    .end()
+ },
+```
+
+### hard-source-webpack-plugin 中间缓存
+
+```js
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+module.exports = {
+  plugin: [
+    new HardSourceWebpackPlugin()
+  ]
+}
+```
+
+## 用户体验优化
+
+### 模块懒加载
+
+```js
+// 路由
+// src/router/index.js
+const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: login
+  },
+  {
+    path: '/home',
+    name: 'home',
+    // 懒加载
+    component: () => import('../views/home/home.vue'),
+  },
+]
+```
+
+### gzip 打包: compression-webpack-plugin
+
+> 用法：`https://www.npmjs.com/package/compression-webpack-plugin`
+
+```shell
+yarn add -D compression-webpack-plugin
+```
+
+```js
+// webpack.prod.js
+const CompressionPlugin = require("compression-webpack-plugin");
+
+module.exports = {
+  plugins: [new CompressionPlugin({
+    algorithm: 'gzip',
+      threshold: 10240,
+      minRatio: 0.8
+  })],
+};
 ```
