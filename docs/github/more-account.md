@@ -26,8 +26,9 @@ git config --global --unset user.email
 ssh-keygen -t rsa -C "github账号"
 # 默认生成～/.ssh/id_rsa（密钥）和.ssh/id_rsa.pub（公钥）
 
-ssh-keygen -t rsa -C "github账号" -f ～/.ssh/另外的文件名
-# 生成～/.ssh/另外的文件名（密钥）和.ssh/另外的文件名.pub（公钥）
+# 进入到～/.ssh目录下
+ssh-keygen -t rsa -C "github账号" -f 另外的文件名
+# 生成密钥和公钥（.pub）
 ...
 ```
 
@@ -46,27 +47,31 @@ ssh-add ~/.ssh/另外的文件名
 ```md
 # default
 
-Host github.com // 用于区分不同 github 账号的
-Hostname github.com // github 地址或其他仓库地址
-IdentityFile ~/.ssh/id_rsa // 本地密钥地址
-User default // 自定义用户名
+  # 用于区分不同 github 账号的
+  Host github.com
+  # github 地址或其他仓库地址
+  Hostname github.com
+  # 本地密钥地址
+  IdentityFile ~/.ssh/id_rsa
+  # 自定义用户名
+  User default
 
 # 另外的文件名
 
-Host 另外的文件名.github.com
-Hostname github.com
-IdentityFile ~/.ssh/另外的文件名
-User 另外的文件名
+  Host 另外的文件名.github.com
+  Hostname github.com
+  IdentityFile ~/.ssh/另外的文件名
+  User 另外的文件名
 ```
 
 ## 测试连接
 
 ```shell
 ssh -T git@github.com
-# 连接默认，成功会提示：Hi，default！...
+# 连接成功会提示：Hi，default！...
 
 ssh -T git@另外的文件名.github.com
-# 连接默认，成功会提示：Hi，另外的文件名！...
+# 连接成功会提示：Hi，另外的文件名！...
 ```
 
 ## clone
@@ -75,5 +80,5 @@ ssh -T git@另外的文件名.github.com
 # default
 git clone git@github.com:xxx/xxx.git
 # 另外的文件名
-git clone git@另外的文件名github.com:xxx/xxx.git
+git clone git@另外的文件名.github.com:xxx/xxx.git
 ```
