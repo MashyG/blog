@@ -1,7 +1,7 @@
 
 # 响应式 - ref
 
-> `ref` 接收一个可选的 `unknown` 做为入参，接着直接调用 `createRef`
+> `ref` 接收一个可选的 `value` 做为入参，接着直接调用 `createRef`
 >
 > `createRef` 先判断 `value` 是否已经是一个 `ref`, 如果是则直接返回，如果不是接着判断是不是浅观察，如果是浅观察直接构造一个 `ref` 返回，不是则将 `rawValue` 转换成 `reactive` 再构造一个 `ref` 返回
 >

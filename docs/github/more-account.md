@@ -77,3 +77,12 @@ git clone git@github.com:xxx/xxx.git
 # 另外的文件名
 git clone git@另外的文件名github.com:xxx/xxx.git
 ```
+
+### 注意
+
+> git 操作之前，需要配置git用户信息，否则将使用全局用户信息提交！！！
+
+```shell
+git config user.name '昵称'
+git config user.email '邮箱'
+```
