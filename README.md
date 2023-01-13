@@ -1,11 +1,14 @@
-
 # 博客地址
 
 [Blog](https://mashyg.github.io/blog/)
 
+## RUN
+
+`yarn && yarn dev`
+
 ## webpack
 
-- [Webpack优化](./docs/webpack.md)
+- [Webpack 优化](./docs/webpack.md)
 
 ## Github
 
