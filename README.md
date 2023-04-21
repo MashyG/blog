@@ -12,8 +12,8 @@
 
 ## Github
 
-- [配置多个 GitHub 账号于本机](./github/more-account.md)
-- [本地项目上传到 git 远程仓库](./github/operate.md)
+- [配置多个 GitHub 账号于本机](./docs/github/more-account.md)
+- [本地项目上传到 git 远程仓库](./docs/github/operate.md)
 
 ## JavaScript 忍者秘籍
 
