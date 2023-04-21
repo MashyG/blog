@@ -125,6 +125,11 @@ function getSideBar() {
           text: 'runtime-core 初始化流程',
           link: '/Vue3/runtimeCoreInit',
           children: []
+        },
+        {
+          text: 'runtime-core 更新流程',
+          link: '/Vue3/runtimeCoreUpdate',
+          children: []
         }
       ]
     }

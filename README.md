@@ -30,6 +30,7 @@
 - [reactivity](./docs/Vue3/reactivity.md)
 - [ref](./docs/Vue3/ref.md)
 - [runtimeCore 初始化](./docs/Vue3/runtimeCoreInit.md)
+- [runtimeCore 更新](./docs/Vue3/runtimeCoreUpdate.md)
 
 ## 参考
 
