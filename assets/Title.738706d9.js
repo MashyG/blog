@@ -1,0 +1,1 @@
+import{_ as r,o as a,c as i,t as l}from"./app.a6f56f7f.js";const n={props:{title:{type:String,default:"title"}},setup(t){return{...t}}};function o(t,s,e,c,p,_){return a(),i("div",null,l(e.title),1)}var f=r(n,[["render",o],["__file","Title.vue"]]);export{f as default};

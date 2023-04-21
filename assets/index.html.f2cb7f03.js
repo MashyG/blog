@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-8daa1a0e","path":"/","title":"Hello vuepress","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"Use Component In Markdown","slug":"use-component-in-markdown","children":[]},{"level":2,"title":"SHOW","slug":"show","children":[]}],"git":{},"filePathRelative":"index.md"}');export{e as data};

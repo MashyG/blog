@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-2120005b","path":"/Vue3/runtimeCoreInit.html","title":"runtime-core \u521D\u59CB\u5316\u6D41\u7A0B","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{},"filePathRelative":"Vue3/runtimeCoreInit.md"}');export{e as data};
