@@ -117,6 +117,11 @@ function getSideBar() {
           children: []
         },
         {
+          text: 'effect 流程',
+          link: '/Vue3/effect',
+          children: []
+        },
+        {
           text: 'runtime-core 初始化流程',
           link: '/Vue3/runtimeCoreInit',
           children: []
